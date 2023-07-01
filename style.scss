@@ -1,0 +1,178 @@
+/*================================================
+    VARIABLES
+  ================================================
+*/
+
+$color-violet: hsl(263, 55%, 52%);
+$color-blue-gray:  hsl(217, 19%, 35%);
+$color-blue-black: hsl(219, 29%, 14%);
+$color-white: hsl(0, 0%, 100%);
+$color-gray: hsl(0, 0%, 81%);
+$color-blue-gray-light: hsl(210, 46%, 95%); 
+
+// Responsive Breakpoints
+
+$bp-largest: 62.5em; // 1000px
+$bp-medium: 43.75em; // 700px
+
+/*================================================
+    BASE STYLES
+  ================================================
+*/
+
+*,*::before,*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: $color-blue-gray-light;
+    line-height: 1.6;
+    background-color: $color-blue-gray-light;
+}
+
+h2{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+
+/*================================================
+    Testimonial
+  ================================================
+*/
+
+.container {
+    width: calc(min(90%, 120rem));
+    margin-inline: auto;
+    padding: 8rem 0;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+        'one'
+        'two'
+        'three'
+        'four'
+        'five';
+    grid-gap: 2rem;
+    
+    @media screen and (min-width: $bp-medium) {
+        grid-template-areas: 
+            'one one'
+            'two three'
+            'four five'
+        ;
+    }
+
+    @media screen and (min-width: $bp-largest) {
+        // grid-template-columns: repeat(4, 1fr);
+        // align-content: center;
+        grid-template-areas: 
+            'one one two five'
+            'three four four five'
+        ;
+    }
+}
+
+.graduate {
+    padding: 3rem;
+    border-radius: 1rem;
+    display: grid;
+    align-content: start;
+    grid-gap: 2rem;
+    box-shadow:  0 2rem 3rem rgba(51,51,51,.2);
+
+    &__profile {
+        display: grid;
+        grid-template-columns: min-content max-content;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    &__img {
+        border-radius: 50%;
+        width: 5rem;
+    }
+
+    &__status {
+        opacity: 50%;
+    }
+
+    &__review {
+        font-weight: 600;
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    &__quote {
+        opacity: 70%;
+    }
+
+    &__one {
+        background-color: $color-violet;
+        background-image: url(../images/bg-pattern-quotation.svg);
+        background-position: top right 12%;
+        background-repeat: no-repeat;
+        grid-area: one;
+
+        // @media screen and (min-width: $bp-medium) {
+        //     grid-column: span 2;
+        // }
+
+        &  .graduate__img {
+            border: 3px solid rgba($color-white, .6);
+        }
+    }
+
+    &__two {
+        background-color: $color-blue-gray;
+        grid-area: two;
+    }
+
+    &__five {
+        grid-area: five;
+
+
+        // @media screen and (min-width: $bp-largest) {
+        //     grid-row: 1 / span 2;
+        //     grid-column: 4 ;
+        // }
+    }
+
+    &__three {
+        grid-area: three;
+    }
+
+    &__three, &__five {
+        background-color: $color-white;
+        color: $color-blue-gray;
+
+    }
+
+    &__four {
+        grid-area: four;
+        background-color: $color-blue-black;
+        
+        // @media screen and (min-width: $bp-largest) {
+        //     grid-column: span 2;            
+        // }
+
+        &  .graduate__img {
+            border: 3px solid rgba($color-violet, .6);
+        }
+    }
+}
