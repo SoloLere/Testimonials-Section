@@ -57,9 +57,9 @@ h3 {
 */
 
 .container {
-    width: calc(min(90%, 120rem));
+    width: calc(min(90%, 140rem));
     margin-inline: auto;
-    padding: 8rem 0;
+    padding: 2rem 0;
     display: grid;
     grid-auto-columns: 1fr;
     grid-template-areas: 
